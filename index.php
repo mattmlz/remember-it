@@ -25,7 +25,19 @@
   <title>Remember it!</title>
 </head>
 <body>
+  <div class="introduction">
+    <h1 class="logo">Remember it!</h1>
+    <p class="description">Your new best to-do list.</p>
+  </div>
 
+  <div class="form">
+    <form class="login-form" action="#" method="post">
+      <input type="text" placeholder="E-mail adress"/>
+      <input type="password" placeholder="Password"/>
+      <button>login</button>
+      <p class="message">Not registered? <a href="assets/pages/create_account.php">Create an account</a></p>
+    </form>
+  </div>
   
 </body>
 </html>
