@@ -36,7 +36,6 @@
       <input type="text" placeholder="Last name"/>
       <input type="text" placeholder="E-mail adress"/>
       <input type="password" placeholder="Password"/>
-      <input type="password" placeholder="Confirm your password"/>
       <button>Create</button>
     </form>
   </div>
