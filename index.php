@@ -1,5 +1,5 @@
 <?php 
-
+ include 'assets/includes/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +32,8 @@
 
   <div class="form">
     <form class="login-form" action="#" method="post">
-      <input type="text" placeholder="E-mail adress"/>
-      <input type="password" placeholder="Password"/>
+      <input type="text" placeholder="E-mail adress">
+      <input type="password" placeholder="Password">
       <button>login</button>
       <p class="message">Not registered? <a href="assets/pages/create_account.php">Create an account</a></p>
     </form>

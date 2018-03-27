@@ -1,5 +1,5 @@
 <?php 
-
+  include_once '../includes/handle_account_creating.php'
 ?>
 
 <!DOCTYPE html>
