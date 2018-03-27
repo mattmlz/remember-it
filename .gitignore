@@ -67,6 +67,7 @@ gulpfile.js
 package-lock.json
 package.json
 keys.txt
+assets/includes/config.php
 
 # VisualStudioCode #
 ####################
