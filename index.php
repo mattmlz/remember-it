@@ -1,5 +1,6 @@
 <?php 
  include 'assets/includes/config.php';
+ include 'assets/includes/login.php';
 ?>
 
 <!DOCTYPE html>
@@ -32,11 +33,20 @@
 
   <div class="form">
     <form class="login-form" action="#" method="post">
-      <input type="text" placeholder="E-mail adress">
-      <input type="password" placeholder="Password">
-      <button>login</button>
+      <input type="text" placeholder="E-mail adress" name="email">
+      <input type="password" placeholder="Password" name="password">
+      <button type="submit">login</button>
       <p class="message">Not registered? <a href="assets/pages/create_account.php">Create an account</a></p>
     </form>
+  </div>
+
+  <div class="messages">
+    <?php foreach($successMessages as $message): ?>
+      <p class="success_message"><?= $message ?></p>
+    <?php endforeach ?>
+    <?php foreach($errorMessages as $message): ?>
+      <p class="error_message"><?= $message ?></p>
+    <?php endforeach ?>
   </div>
   
 </body>
