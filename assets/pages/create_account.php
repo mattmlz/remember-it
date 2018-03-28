@@ -1,5 +1,6 @@
 <?php 
-  include_once '../includes/handle_account_creating.php'
+  include '../includes/config.php';
+  include '../includes/handle_account_creating.php'
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +32,22 @@
   </div>
 
   <div class="form">
-    <form class="login-form" action="#" method="post">
-      <input type="text" placeholder="First name"/>
-      <input type="text" placeholder="Last name"/>
-      <input type="text" placeholder="E-mail adress"/>
-      <input type="password" placeholder="Password"/>
-      <button>Create</button>
+    <form action="#" method="post" class="login-form">
+      <input type="text" placeholder="First name" name="first-name" value="<?= $_POST['first-name'] ?>">
+      <input type="text" placeholder="Last name" name="last-name" value="<?= $_POST['last-name'] ?>">
+      <input type="text" placeholder="E-mail adress" name="e-mail" value="<?= $_POST['e-mail'] ?>">
+      <input type="password" placeholder="Password" name="password" value="<?= $_POST['password'] ?>">
+      <button type="submit">Create</button>
     </form>
+  </div>
+
+  <div class="messages">
+    <?php foreach($errorMessages as $message): ?>
+      <p class="error_message"><?= $message ?></p>
+    <?php endforeach ?>
+    <?php foreach($successMessages as $message): ?>
+      <p class="success_message"><?= $message ?> <a href="../../index.php">Back home to log-in ?</a> </p>
+    <?php endforeach ?>
   </div>
   
 </body>

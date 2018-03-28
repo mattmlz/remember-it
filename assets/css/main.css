@@ -63,3 +63,27 @@ body {
   color: #feca57;
   text-decoration: none;
 }
+
+/* MESSAGES FROM CREATE ACCOUNT FORM */
+.messages{
+font-size: 35px;
+text-align: center;
+}
+
+.messages .error_message {
+  color: #ee5253;
+}
+
+.messages .success_message {
+  color: #F1F1F1;
+}
+
+.messages .success_message a {
+  text-decoration: none;
+  color: #feca57;
+}
+
+.messages .success_message a:hover {
+  text-decoration: none;
+  color: #ff9f43;
+}
