@@ -1,5 +1,9 @@
 <?php
   include '../includes/config.php';
+  include '../includes/login.php';
+
+  $query = $pdo->query('SELECT first_name from USERS');
+  $users = $query->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- CSS & fonts -->
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700" rel="stylesheet">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/tasks.css">
   <!-- FAVICONS -->
@@ -26,15 +30,16 @@
 </head>
 <body>
   <div class="container">
+    <div class="username">Welcome <?php foreach ($_SESSION as $session) {echo $session;} ?>!</div>
     <div class="tasks">
       <table>
         <tr>
-          <th>State</th>
           <th>What you have to do:</th>
+          <th>State</th>
         </tr>
         <tr>
-          <td></td>
           <td>Wash my appartment</td>
+          <td class="state"></td>
         </tr>
       </table>
     </div>

@@ -1,5 +1,5 @@
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'IBM Plex Sans', sans-serif;
   background: #F1F1F1;
 }
 
@@ -11,6 +11,29 @@ body {
   align-items: center;
 }
 
+.container div.username {
+  font-size: 30px;
+  text-decoration: underline;
+  padding: 10px;
+}
+
 .container .tasks table, .container .tasks th, .container .tasks td{
   border: 1px solid black;
+  color: #010101;
+}
+
+.container .tasks table {
+  width: 50vw;
+}
+
+.container .tasks th {
+  font-size: 25px;
+  font-weight: 700;
+  padding: 20px;
+}
+
+.container .tasks td {
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
 }
