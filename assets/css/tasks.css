@@ -14,7 +14,7 @@ body {
 .container div.username {
   font-size: 30px;
   text-decoration: underline;
-  padding: 10px;
+  padding: 30px;
 }
 
 .container .tasks table, .container .tasks th, .container .tasks td{
@@ -36,4 +36,8 @@ body {
   font-size: 20px;
   padding: 5px;
   text-align: center;
+}
+
+.container .task td.state {
+  padding: 0;
 }

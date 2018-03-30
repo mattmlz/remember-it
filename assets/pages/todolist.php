@@ -39,7 +39,14 @@
         </tr>
         <tr>
           <td>Wash my appartment</td>
-          <td class="state"></td>
+          <td class="state">
+            <select name="state">
+              <option>Choose the state of the task!</option>
+              <option value="todo">To do</option>
+              <option value="inprogress">In progress</option>
+              <option value="done">Done</option>
+            </select>
+          </td>
         </tr>
       </table>
     </div>
