@@ -1,9 +1,11 @@
 <?php
   include '../includes/config.php';
-  include '../includes/login.php';
+  include '../includes/change_state.php';
 
-  $query = $pdo->query('SELECT * from USERS');
-  $users = $query->fetchAll();
+  $userid = $_COOKIE['user_id'];
+  $task = $pdo->query("SELECT tasks.id, tasks.task, tasks.state, tasks.id_users FROM users, tasks WHERE tasks.id_users = users.id ");
+  $tasks = $task->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -36,28 +38,62 @@
         <tr>
           <th>What you have to do:</th>
           <th>State</th>
+          <th>Change state</th>
         </tr>
+        
+        <?php foreach($tasks as $_task): ?>
+        <!-- Only display taks from current user -->
+        <?php if($_task->id_users == $userid): ?>
+        <tr>
+          <td>
+            <p><?= $_task->task; ?></p>
+            <?php $_COOKIE['task_id'] = $_task->id; ?>
+
+          </td>
+
+          <td class="state">
+            <?= $_task->state ?>
+          </td>
+
+          <td>
+          <form action="#" method="post" class="task_state">
+            <label>
+              <input type="radio" name="state" value="To-do" <?= $_POST['state'] == 'To-do' ? 'checked' : '' ?>>
+              To-do
+            </label>
+            <label>
+              <input type="radio" name="state" value="In progress" <?= $_POST['state'] == 'In progress' ? 'checked' : '' ?>>
+              In progress
+            </label>
+            <label>
+              <input type="radio" name="state" value="Done" <?= $_POST['state'] == 'Done' ? 'checked' : '' ?>>
+              Done
+            </label>
+
+              <button type="submit">Change state</button>
+            </form>
+            <?php foreach($errorState as $message): ?>
+              <p><?= $message ?></p>
+            <?php endforeach ?>
+
+            <?php foreach($successState as $message): ?>
+              <p><?= $message ?></p>
+            <?php endforeach ?>
+          </td>
+        </tr>
+        <?php endif ?>
+        <?php endforeach ?>
 
         <tr>
-          <td>Wash my appartment</td>
-          <td class="state">
-            <form action="#" method="post" class="task_state">
+          <td colspan="3" class="add_task">
+            <p class="title">Add a task:</p>
+            <form action="#" method="post">
+              <textarea name="adding_task" cols="50" rows="3"></textarea>
               <select name="state">
-                <option>Choose the state of the task!</option>
                 <option value="todo">To do</option>
                 <option value="inprogress">In progress</option>
                 <option value="done">Done</option>
               </select>
-              <button type="submit">Change state</button>
-            </form>
-          </td>
-        </tr>
-
-        <tr>
-          <td colspan="2" class="add_task">
-            <p class="title">Add a task:</p>
-            <form action="#" method="post">
-              <textarea name="task" cols="100" rows="3"></textarea>
               <button type="submit">Add</button>
             </form>
           </td>

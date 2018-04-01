@@ -52,6 +52,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.container .tasks td.add_task form select {
+  margin: 5px;
+}
+
 .container .tasks td.add_task form button {
   margin: 3px;
 }
