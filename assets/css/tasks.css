@@ -38,6 +38,20 @@ body {
   text-align: center;
 }
 
-.container .task td.state {
+.container .tasks td.state {
   padding: 0;
+}
+
+.container .tasks td.add_task p.title {
+  padding: 5px;
+}
+
+.container .tasks td.add_task form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.container .tasks td.add_task form button {
+  margin: 3px;
 }

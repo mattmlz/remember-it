@@ -2,7 +2,7 @@
   include '../includes/config.php';
   include '../includes/login.php';
 
-  $query = $pdo->query('SELECT first_name from USERS');
+  $query = $pdo->query('SELECT * from USERS');
   $users = $query->fetchAll();
 ?>
 
@@ -30,24 +30,39 @@
 </head>
 <body>
   <div class="container">
-    <div class="username">Welcome <?php foreach ($_SESSION as $session) {echo $session;} ?>!</div>
+    <div class="username">Welcome <?= $_COOKIE["firstname"] ?>!</div>
     <div class="tasks">
       <table>
         <tr>
           <th>What you have to do:</th>
           <th>State</th>
         </tr>
+
         <tr>
           <td>Wash my appartment</td>
           <td class="state">
-            <select name="state">
-              <option>Choose the state of the task!</option>
-              <option value="todo">To do</option>
-              <option value="inprogress">In progress</option>
-              <option value="done">Done</option>
-            </select>
+            <form action="#" method="post" class="task_state">
+              <select name="state">
+                <option>Choose the state of the task!</option>
+                <option value="todo">To do</option>
+                <option value="inprogress">In progress</option>
+                <option value="done">Done</option>
+              </select>
+              <button type="submit">Change state</button>
+            </form>
           </td>
         </tr>
+
+        <tr>
+          <td colspan="2" class="add_task">
+            <p class="title">Add a task:</p>
+            <form action="#" method="post">
+              <textarea name="task" cols="100" rows="3"></textarea>
+              <button type="submit">Add</button>
+            </form>
+          </td>
+        </tr>
+
       </table>
     </div>
   </div>
